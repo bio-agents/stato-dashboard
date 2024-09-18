@@ -1,0 +1,68 @@
+title: "OBO Dashboard"
+description: "Dashboard for checking ontology quality. Under construction."
+obo_score_weights:
+  no_base:
+    impact_factor: 5
+    max_impact: 5
+  overall_error:
+    impact_factor: 5
+    max_impact: 20
+  overall_warning:
+    impact_factor: 0.5
+    max_impact: 10
+  overall_info:
+    impact_factor: 0.1
+    max_impact: 5
+  report_errors:
+    impact_factor: 0.05
+    max_impact: 10
+  report_warning:
+    impact_factor: 0.01
+    max_impact: 5
+  report_info:
+    impact_factor: 0.005
+    max_impact: 3
+  impact:
+    impact_factor: 1
+    max_impact: 1 
+  dashboard:
+    impact_factor: 1
+    max_impact: 
+ontologies:
+  custom:
+    - id: tmp
+      mirror_from: "https://raw.githubusercontent.com/monarch-ebi-dev/robot_tests/master/custom-dashboard.owl"
+    - id: STATO
+      mirror_from: "https://raw.githubusercontent.com/ISA-agents/stato/dev/releases/latest_release/stato.owl"
+      title: STATO - STATistics Ontology
+      contact:
+        email: proccaserra@gmail.com
+        label: Philippe Rocca-Serra
+        orcid: 0000-0001-9853-5668
+        github: proccaserra
+      description: STATO is a general-purpose Statistics Ontology. Its aim is to provide coverage for processes such as statistical tests, their conditions of application, and information needed or resulting from statistical methods, such as probability distributions, variables, spread and variation metrics. STATO also covers aspects of experimental design and description of plots and graphical representations commonly used to provide visual cues of data distribution or layout and to assist review of the results.
+      domain: Statistics
+      homepage: http://stato-ontology.org/
+      products:
+        - id: stato.owl
+        - id: stato.obo
+        - id: stato.rdf
+      dependencies:
+        - id: BFO
+        - id: OBI
+      tracker: "https://github.com/ISA-agents/stato/issues"
+      license:
+        url: "https://creativecommons.org/licenses/by/3.0/"
+        label: CC BY 3.0.
+      base_ns:
+        - http://purl.obolibrary.org/obo/STATO_
+prefer_base: True
+profile:
+  baseprofile: "https://raw.githubusercontent.com/ontodev/robot/master/robot-core/src/main/resources/report_profile.txt"
+  custom:
+    - "WARN\tfile:./sparql/missing_xrefs.sparql"
+report_truncation_limit: 600
+redownload_after_hours: 0
+environment:
+  ROBOT_JAR: /agents/robot.jar
+  ROBOT: robot
